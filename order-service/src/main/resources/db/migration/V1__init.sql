@@ -1,6 +1,3 @@
-# online-store-springboot-kube
-
-```
 CREATE TABLE t_orders
 (
     `id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -10,4 +7,3 @@ CREATE TABLE t_orders
     `quantity` int(11),
     PRIMARY KEY (`id`)
 );
-```
