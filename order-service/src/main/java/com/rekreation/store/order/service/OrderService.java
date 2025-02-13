@@ -1,5 +1,6 @@
 package com.rekreation.store.order.service;
 
+import com.rekreation.store.order.client.InventoryClient;
 import com.rekreation.store.order.dto.OrderRequest;
 import com.rekreation.store.order.model.Order;
 import com.rekreation.store.order.repository.OrderRepository;
@@ -12,18 +13,23 @@ import org.springframework.stereotype.Service;
 public class OrderService {
 
   private  final OrderRepository orderRepository;
+  private final InventoryClient inventoryClient;
 
   public void placeOrder( OrderRequest orderRequest){
 
-        // map order request to order object
-    Order order = new Order();
-    order.setOrderNumber(UUID.randomUUID().toString());
-    order.setPrice(orderRequest.price());
-    order.setSkuCode(orderRequest.skuCode());
-    order.setQuantity(orderRequest.quantity());
+   var isProductInStock = inventoryClient.isInStock(orderRequest.skuCode(), orderRequest.quantity());
 
-        // save order object to database
-    orderRepository.save(order);
+   if (isProductInStock){
+     Order order = new Order();
+     order.setOrderNumber(UUID.randomUUID().toString());
+     order.setPrice(orderRequest.price());
+     order.setSkuCode(orderRequest.skuCode());
+     order.setQuantity(orderRequest.quantity());
+     orderRepository.save(order);
+   }else{
+      throw new RuntimeException("Product with SkuCode " +orderRequest.skuCode()+ "is out of stock");
+   }
+
 
   }
 }

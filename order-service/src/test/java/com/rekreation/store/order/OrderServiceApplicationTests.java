@@ -1,5 +1,6 @@
 package com.rekreation.store.order;
 
+import com.rekreation.store.order.stubs.InventoryClientStub;
 import io.restassured.RestAssured;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
@@ -43,6 +44,7 @@ class OrderServiceApplicationTests {
 				}
 				""";
 
+    InventoryClientStub.stubInventoryCall("iphone_15", 1);
     // when
     var responseBodyString =
         RestAssured.given()
