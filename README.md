@@ -6,6 +6,8 @@ This project implements a scalable e-commerce platform using microservices archi
 
 ## Architecture
 
+![Architecture Diagram](architecture-diagram.png)
+
 ### Core Microservices
 
 1. **Product Service**
