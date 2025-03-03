@@ -1,0 +1,11 @@
+{
+  "type": "record",
+  "name": "OrderPlacedEvent",
+  "namespace": "com.rekreation.store.order.event",
+  "fields": [
+    { "name": "orderNumber", "type": "string" },
+    { "name": "email", "type": ["null", "string"], "default": null },
+    { "name": "firstName", "type": ["null", "string"], "default": null },
+    { "name": "lastName", "type": ["null", "string"], "default": null }
+  ]
+}

@@ -10,6 +10,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.mail.javamail.MimeMessagePreparator;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 @Service
 @RequiredArgsConstructor
@@ -19,22 +20,24 @@ public class NotificationService {
     private final JavaMailSender javaMailSender;
 
     @KafkaListener(topics = "order_placed")
-    public void listenOrderPlaced(OrderPlacedEvent  orderPlacedEvent) {
+    public void listenOrderPlaced(OrderPlacedEvent orderPlacedEvent) {
         log.info("Notification received from order-placed topic: {}", orderPlacedEvent);
 
         MimeMessagePreparator messagePreparator = mimeMessage -> {
             MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage);
             messageHelper.setFrom("springshop@email.com");
-            messageHelper.setTo(orderPlacedEvent.getEmail());
+            messageHelper.setTo(orderPlacedEvent.getEmail().toString());
             messageHelper.setSubject(String.format("Your Order with OrderNumber %s is placed successfully", orderPlacedEvent.getOrderNumber()));
             messageHelper.setText(String.format("""
-                            Hi,
+                            Hi %s %s,
 
                             Your order with order number %s is now placed successfully.
 
                             Best Regards
                             Spring Shop
                             """,
+                    trimToEmptyIfNull(orderPlacedEvent.getFirstName()),
+                    trimToEmptyIfNull(orderPlacedEvent.getLastName()),
                     orderPlacedEvent.getOrderNumber()));
         };
         try {
@@ -44,7 +47,9 @@ public class NotificationService {
             log.error("Exception occurred when sending mail", e);
             throw new RuntimeException("Exception occurred when sending mail to springshop@email.com", e);
         }
-
     }
 
+    private String trimToEmptyIfNull(CharSequence stringInput) {
+        return stringInput!=null ? stringInput.toString() : "";
+    }
 }
