@@ -4,8 +4,8 @@
   "namespace": "com.rekreation.store.order.event",
   "fields": [
     { "name": "orderNumber", "type": "string" },
-    { "name": "email", "type": "string" },
-    { "name": "firstName", "type": "string" },
-    { "name": "lastName", "type": "string" }
+    { "name": "email", "type": ["null", "string"], "default": null },
+    { "name": "firstName", "type": ["null", "string"], "default": null },
+    { "name": "lastName", "type": ["null", "string"], "default": null }
   ]
 }
