@@ -37,7 +37,7 @@ This project implements a scalable e-commerce platform using microservices archi
    - Key Operations: Order confirmations, status updates
 
 ### Communication Patterns
-
+Sequence Diagram : 
 ![Communication Flow](communication-flow.svg)
 
 - **Synchronous Communication**:
@@ -103,7 +103,7 @@ This project implements a scalable e-commerce platform using microservices archi
 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-repo/ecommerce-microservices.git
+git clone https://github.com/tushartari11/online-store-springboot-kube.git
 ```
 
 2. Build services
@@ -119,11 +119,17 @@ docker-compose up -d
 ```
 
 4. Deploy to Kubernetes
+deployment manifests are provided in the `k8s/manifests` directory. You can apply them in the following order:
 
+### deploy infrastructure
 ```bash
-kubectl apply -f k8s/
+kubectl apply -f k8s/manifests/infrastructure
 ```
 
+### deploy applications
+```bash
+kubectl apply -f k8s/manifests/applications
+```
 ### API Documentation
 
 - Access OpenAPI documentation: `http://localhost:8080/swagger-ui.html`
@@ -149,10 +155,11 @@ kubectl apply -f k8s/
 - Distributed tracing with OpenTelemetry
 - Log aggregation with Grafana Loki
 
-## Contributing
-
-[Include contribution guidelines]
-
-## License
-
-[Include license information]
+## Future Enhancements
+- Implement GraphQL for flexible querying
+- Add more microservices (e.g., Payment Service)
+- Implement advanced caching strategies
+- Structured logging 
+- Implement CI/CD pipelines for automated deployments
+- Deploy to cloud platforms (AWS)
+- IAC using Terraform or Pulumi

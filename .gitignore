@@ -1,1 +1,305 @@
 .DS_Store
+
+# Java
+*.class
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+hs_err_pid*
+replay_pid*
+
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# Gradle
+.gradle
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# IDE Files
+## IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+
+## Eclipse
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+
+## VS Code
+.vscode/
+*.code-workspace
+
+# OS Files
+## macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+## Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.tmp
+*.temp
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+## Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# Database Files
+## MongoDB
+*.mongo
+mongo-data/
+mongodb-data/
+
+## MySQL
+mysql-data/
+*.sql
+*.dump
+*.db
+
+# Docker
+## Docker files
+Dockerfile.backup
+docker-compose.override.yml
+.dockerignore.backup
+
+## Docker volumes and data
+docker-data/
+.docker/
+docker-compose-*.yml
+!docker-compose.yml
+!docker-compose.prod.yml
+!docker-compose.dev.yml
+
+# Kubernetes
+## Kubernetes secrets and sensitive files
+*-secret.yaml
+*-secret.yml
+*secret*.yaml
+*secret*.yml
+kubeconfig
+.kube/config
+
+## Helm
+charts/*/charts/
+charts/*/requirements.lock
+charts/*/values-*.yaml
+!charts/*/values-example.yaml
+
+# Environment Variables and Configuration
+.env
+.env.local
+.env.*.local
+.env.development
+.env.test
+.env.production
+*.env
+config/local/
+config/dev/
+config/prod/
+secrets/
+
+# Security and Authentication
+## Keycloak
+keycloak-data/
+realm-export.json
+*.p12
+*.jks
+*.keystore
+*.truststore
+private-key.pem
+public-key.pem
+*.pem
+*.key
+*.crt
+*.cert
+
+## OAuth/JWT
+jwt-secret.txt
+oauth-secrets/
+
+# Testing
+## Test reports
+test-results/
+test-output/
+coverage/
+*.coverage
+jacoco.exec
+.nyc_output/
+
+## WireMock
+wiremock-data/
+__files/
+mappings/
+*.json.backup
+
+# Monitoring and Observability
+## Logs
+application*.log
+spring.log
+error.log
+debug.log
+trace.log
+*.log.gz
+
+## Metrics and monitoring
+metrics/
+prometheus-data/
+grafana-data/
+
+# Temporary Files
+*.tmp
+*.bak
+*.swp
+*.swo
+*~
+.#*
+\#*\#
+
+# Package Files
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build artifacts
+dist/
+build/
+out/
+.next/
+.nuxt/
+.vuepress/dist
+.serverless/
+
+# Cache directories
+.cache/
+.parcel-cache/
+.npm
+.eslintcache
+.stylelintcache
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+*.lcov
+
+# Dependency directories
+jspm_packages/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# parcel-bundler cache (https://parceljs.org/)
+.cache
+.parcel-cache
+
+# next.js build output
+.next
+
+# nuxt.js build output
+.nuxt
+
+# vuepress build output
+.vuepress/dist
+
+# Serverless directories
+.serverless
+
+# FuseBox cache
+.fusebox/
+
+# DynamoDB Local files
+.dynamodb/
+
+# API Documentation
+## OpenAPI/Swagger generated files
+api-docs/
+swagger-ui/
+openapi-generated/
+
+# Microservices specific
+## Service discovery
+eureka-server-data/
+consul-data/
+
+## Message queues
+kafka-data/
+kafka-logs/
+zookeeper-data/
+
+## Caching
+redis-data/
+
+# Local development
+local/
+dev-tools/
+scripts/local/
